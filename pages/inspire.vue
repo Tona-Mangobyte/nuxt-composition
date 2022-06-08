@@ -14,8 +14,17 @@
   </v-row>
 </template>
 
-<script>
-export default {
-  name: 'InspirePage',
-}
+<script setup>
+  import { ref, onMounted, useFetch, useAsync, useContext } from '@nuxtjs/composition-api'
+  useFetch(() => {
+    const { $http } = useContext()
+    const posts = ref(null)
+    posts.value = useAsync(() =>
+      $http.$get('https://jsonplaceholder.typicode.com/posts')
+    )
+    // console.info(posts.value)
+  })
+  onMounted(() => {
+    console.info('======onMounted=======')
+  })
 </script>
