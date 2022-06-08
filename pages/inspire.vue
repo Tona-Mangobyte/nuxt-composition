@@ -14,13 +14,13 @@
   </v-row>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import { ref, onMounted, useFetch, useAsync, useContext } from '@nuxtjs/composition-api'
   useFetch(() => {
-    const { $http } = useContext()
+    const { app } = useContext()
     const posts = ref(null)
     posts.value = useAsync(() =>
-      $http.$get('https://jsonplaceholder.typicode.com/posts')
+      app.$http.$get('https://jsonplaceholder.typicode.com/posts')
     )
     // console.info(posts.value)
   })
