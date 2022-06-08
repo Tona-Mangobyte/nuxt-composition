@@ -1,24 +1,32 @@
 <template>
   <v-row>
     <v-col class="text-center">
-      <img src="/v.png" alt="Vuetify.js" class="mb-5" />
-      <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, write the code.&#8221;
-        <footer>
-          <small>
-            <em>&mdash;John Johnson</em>
-          </small>
-        </footer>
-      </blockquote>
+      <v-card>
+        <v-card-title>
+          Composition api demo
+        </v-card-title>
+        <v-card-text>
+          <p>
+            Count: {{ count }}
+          </p>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn class="primary" @click="increment">Increment</v-btn>
+        </v-card-actions>
+      </v-card>
     </v-col>
   </v-row>
 </template>
 
 <script setup lang="ts">
   import { ref, onMounted, useFetch, useAsync, useContext } from '@nuxtjs/composition-api'
+
+  const { app } = useContext()
+
+  const count = ref(0)
+  const posts = ref(null)
+
   useFetch(() => {
-    const { app } = useContext()
-    const posts = ref(null)
     posts.value = useAsync(() =>
       app.$http.$get('https://jsonplaceholder.typicode.com/posts')
     )
@@ -26,5 +34,10 @@
   })
   onMounted(() => {
     console.info('======onMounted=======')
+    count.value = 0
   })
+
+  function increment() {
+    count.value++
+  }
 </script>
