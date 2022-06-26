@@ -11,7 +11,7 @@
             Vue.js. It was designed to empower developers to create amazing
             applications.
           </p>
-          <p>Count: {{ count }}</p>
+          <p id="count">Count: {{ count }}</p>
         </v-card-text>
         <v-card-actions>
           <v-btn color="primary" @click="increment"> Count </v-btn>
@@ -34,7 +34,7 @@ import {
 } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  setup() {
+  /*setup() {
     const count = ref(0)
     const posts = ref(null)
     const { $http } = useContext()
@@ -56,6 +56,6 @@ export default defineComponent({
     increment() {
       this.count++
     },
-  },
+  },*/
 })
 </script>
