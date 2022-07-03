@@ -18,7 +18,7 @@
   </v-row>
 </template>
 
-<script setup lang="ts">
+<!--<script setup lang="ts">
   import { ref, onMounted, useFetch, useAsync, useContext } from '@nuxtjs/composition-api'
 
   const { app } = useContext()
@@ -40,4 +40,4 @@
   function increment() {
     count.value++
   }
-</script>
+</script>-->

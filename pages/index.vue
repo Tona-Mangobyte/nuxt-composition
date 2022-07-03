@@ -14,7 +14,7 @@
           <p id="count">Count: {{ count }}</p>
         </v-card-text>
         <v-card-actions>
-          <v-btn color="primary" @click="increment"> Count </v-btn>
+          <v-btn id="btnCount" color="primary" @click="increment"> Count </v-btn>
           <v-spacer />
           <v-btn color="primary" nuxt to="/inspire"> Continue </v-btn>
         </v-card-actions>
@@ -34,7 +34,7 @@ import {
 } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  /*setup() {
+  setup() {
     const count = ref(0)
     const posts = ref(null)
     const { $http } = useContext()
@@ -56,6 +56,6 @@ export default defineComponent({
     increment() {
       this.count++
     },
-  },*/
+  },
 })
 </script>
